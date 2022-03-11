@@ -2,13 +2,16 @@
 
 This is an [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage) Custom Filesystem for [Laravel](http://laravel.com/).
 
+## Note
+This package is a detached fork of [tavux/laravel-ibm-cos](https://github.com/tavux/laravel-ibm-cos)
+
 ## Installation
 
 * Install the package with Composer
 ```bash
-composer require tavux/laravel-ibm-cos
+composer require oss-tools/laravel-ibm-cos
 ```
-* Add  `\Tavux\IBMCloudObjectStorage\Laravel\IbmCloudObjectStorageProvider::class` to `providers` in *config/app.php*
+* Add  `\OSSTools\IBMCloudObjectStorage\Laravel\IbmCloudObjectStorageProvider::class` to `providers` in *config/app.php*
 
 * In your *.env* file, add these lines with your IBM Cloud storage parameters 
 ```dotenv

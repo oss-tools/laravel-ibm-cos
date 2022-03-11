@@ -1,11 +1,11 @@
 <?php
 
-namespace Tavux\IBMCloudObjectStorage\Laravel;
+namespace OSSTools\IBMCloudObjectStorage\Laravel;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
-use Tavux\Flysystem\IBMCloudObjectStorage\IbmCosAdapter;
+use OSSTools\Flysystem\IBMCloudObjectStorage\IbmCosAdapter;
 
 class IbmCloudObjectStorageProvider extends ServiceProvider
 {
