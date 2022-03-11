@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use OSSTools\Flysystem\IBMCloudObjectStorage\IbmCosAdapter;
+use Illuminate\Filesystem\FilesystemAdapter;
 
 class IbmCloudObjectStorageProvider extends ServiceProvider
 {
@@ -29,12 +30,14 @@ class IbmCloudObjectStorageProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*$this->publishes([
-            __DIR__ . '/../config/filesystems.php' => config_path('filesystems.php'),
-        ], ['config', 'ibm-cos']);*/
+        Storage::extend('ibm-cos', function ($app, $config) {
+            $adapter = new IbmCosAdapter($config, $config['bucket']);
 
-        Storage::extend('ibm-cos', function($app, $config) {
-            return new Filesystem(new IbmCosAdapter($config, $config['bucket']));
+            return new FilesystemAdapter(
+                new Filesystem($adapter, $config),
+                $adapter,
+                $config
+            );
         });
     }
 }
